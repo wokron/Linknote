@@ -1,7 +1,10 @@
+import linknote.Linknote;
+
 public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello world!");
+        Linknote linknote = new Linknote();
+        linknote.run(args);
     }
 }

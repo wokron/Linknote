@@ -78,15 +78,14 @@ public class Note implements Comparable<Note>
     }
 
     @Override
-    public int compareTo(Object o)
-    {
-        String s = (String) o;
-        return category.compareTo(s);
-    }
-
-    @Override
     public String toString()
     {
         return this.noteName + "|" + this.category;
+    }
+
+    @Override
+    public int compareTo(Note o)
+    {
+        return this.category.compareTo(o.category);
     }
 }

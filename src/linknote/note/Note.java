@@ -1,17 +1,16 @@
 package linknote.note;
 
+import linknote.exception.LinknoteException;
 import linknote.note.content.ContentManager;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-public class Note implements Comparable
+public class Note implements Comparable<Note>
 {
     private final String category;
     private final String noteName;
-    private final Set<Note> links = new HashSet<>();
+    private final Map<String, Note> links = new HashMap<>();
     protected final ContentManager contentManager;
     public Note(String owner, String category, String noteName) throws IOException
     {
@@ -53,18 +52,28 @@ public class Note implements Comparable
         contentManager.close();
     }
 
-    public void makeLink(Note note)
+    public void makeLink(String linkName, Note note)
     {
-        links.add(note);
+        links.put(linkName, note);
     }
 
     public List<String> showLinks()
     {
-        return links.stream().map(Note::toString).toList();
+        return links.keySet().stream().toList();
     }
 
-    public String getContent()
+    public Note jumpToLinkedNote(String linkName) throws LinknoteException
     {
+        if (links.containsKey(linkName))
+            return links.get(linkName);
+        else
+            throw new LinknoteException("link name not found");
+    }
+
+    public String getContent() throws IOException
+    {
+        if (!contentManager.isOpen())
+            contentManager.open();
         return contentManager.getContent();
     }
 

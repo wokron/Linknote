@@ -84,6 +84,51 @@ public class NoteManager
         nowCategory.push(targetCateNode);
     }
 
+    public List<String> showLinks() throws LinknoteException
+    {
+        var links = new ArrayList<>(getCurrentNote().showLinks());
+        if (unvisNotes.size() > 0)
+            links.add(0, "next");
+        return links;
+    }
+
+    public void makeLink(String linkName, String category, String noteName) throws LinknoteException
+    {
+        String[] cateSplit = category.split("/");
+        String path, directory = "";
+        path = cateSplit[0];
+        if (cateSplit.length > 1)
+            directory = cateSplit[1];
+        if (!categoriesToNotes.containsKey(path))
+            throw new LinknoteException("category not find");
+        var notes = categoriesToNotes.get(path);
+        if (!notes.containsKey(directory + "|" + noteName))
+            throw new LinknoteException("inner category not find");
+        var noteFounded = notes.get(directory + "|" + noteName);
+        getCurrentNote().makeLink(linkName, noteFounded);
+    }
+
+    public void jumpToLinkedNote(String linkName) throws LinknoteException
+    {
+        Note linkedNote;
+        if (linkName.equals("next"))
+        {
+            if (unvisNotes.size() > 0)
+                linkedNote = unvisNotes.pop();
+            else
+                throw new LinknoteException("link name not found");
+        }
+        else
+            linkedNote = getCurrentNote().jumpToLinkedNote(linkName);
+        visNotes.push(linkedNote);
+    }
+
+    public void goBackToPreNote()
+    {
+        if (visNotes.size() > 1)
+            unvisNotes.push(visNotes.pop());
+    }
+
     private String joinTotalCategory(String noteName)
     {
         var nowCateAsStr = String.join(

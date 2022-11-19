@@ -21,6 +21,7 @@ public class NoteManagerTest
         manager.newNote("test6", "yyt", "y2.cateNew");
         manager.newNote("test7", "yyt", "y1.cateNew");
         manager.newNote("test8", "yyt", "y1.cateNew");
+        manager.newNote("test11", "yyt", "y1.cateNew/subtitle1.chapter1");
 
         // at root
         Assert.assertEquals("", manager.showNowCategory());
@@ -29,7 +30,7 @@ public class NoteManagerTest
         Assert.assertEquals("y1", cates.get(0));
         Assert.assertEquals("y2", cates.get(1));
 
-        manager.gotoCategory(cates.get(1));
+        manager.gotoCategory("y2");
         // at y2
         cates = manager.showCategories();
         Assert.assertEquals(1, cates.size());
@@ -43,12 +44,48 @@ public class NoteManagerTest
         Assert.assertEquals(1, cates.size());
         Assert.assertEquals("cateNew", cates.get(0));
 
-        manager.openNote(cates.get(0));
-        var note = manager.getCurrentNote();
-        note.append("123");
-        note.close();
-        manager.closeNote();
+        manager.openNote("cateNew");
 
+        var note = manager.getCurrentNote();
+        note.append("1");
+        note.close();
+
+        var links = manager.showLinks();
+        Assert.assertEquals(1, links.size());
+        Assert.assertEquals("next", links.get(0));
+
+        manager.jumpToLinkedNote("next");
+        manager.getCurrentNote().append("2");
+        manager.getCurrentNote().close();
+
+        manager.jumpToLinkedNote("next");
+        manager.getCurrentNote().append("3");
+        manager.getCurrentNote().close();
+
+        manager.goBackToPreNote();
+        Assert.assertEquals("1 2\n", manager.getCurrentNote().getContent());
+
+        manager.makeLink("goto_y2", "y2.cateNew", "test6");
+        links = manager.showLinks();
+        Assert.assertEquals(2, links.size());
+        Assert.assertEquals("next", links.get(0));
+        Assert.assertEquals("goto_y2", links.get(1));
+
+        manager.jumpToLinkedNote("goto_y2");
+        Assert.assertEquals("test6|y2.cateNew", manager.getCurrentNote().toString());
+        manager.getCurrentNote().append("amazing jump!!!");
+        manager.getCurrentNote().close();
+
+        manager.goBackToPreNote();
+
+        manager.goBackToPreNote();
+        manager.goBackToPreNote();
+        manager.goBackToPreNote();
+        manager.goBackToPreNote();
+        manager.goBackToPreNote();
+        Assert.assertEquals("1 1\n", manager.getCurrentNote().getContent());
+
+        manager.closeNote();
 //        manager.gotoCategory(manager.showCategories().get(0));
 
 

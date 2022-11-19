@@ -22,7 +22,17 @@ public class ContentManager
     {
         this.filePath = Paths.get(filePath);
         if (Files.notExists(this.filePath))
+        {
+            Path parentPath = this.filePath.getParent();
+            if (Files.notExists(parentPath))
+                Files.createDirectories(parentPath);
             Files.createFile(this.filePath);
+        }
+    }
+
+    public boolean isOpen()
+    {
+        return isOpen;
     }
 
     /**

@@ -1,4 +1,4 @@
-package linknote.content;
+package linknote.note.content;
 
 import java.io.IOException;
 import java.nio.file.Files;

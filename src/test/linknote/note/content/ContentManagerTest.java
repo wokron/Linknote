@@ -1,6 +1,6 @@
-package test.linknote.content;
+package test.linknote.note.content;
 
-import linknote.content.ContentManager;
+import linknote.note.content.ContentManager;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class ContentManagerTest
     @Test
     public void testContentManager() throws IOException
     {
-        ContentManager manager = new ContentManager(".\\src\\test\\linknote\\content\\test.note");
+        ContentManager manager = new ContentManager(".\\src\\test\\linknote\\note\\content\\test.note");
         manager.open();
         manager.append("12345");
         manager.append("abc");

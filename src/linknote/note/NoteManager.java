@@ -31,7 +31,7 @@ public class NoteManager
         if (!categoriesToNotes.containsKey(path))
             categoriesToNotes.put(path, new TreeMap<>());
         var notes = categoriesToNotes.get(path);
-        notes.put(directory, new Note(noteOwner, category, noteName));
+        notes.put(directory + "|" + noteName, new Note(noteOwner, category, noteName));
     }
 
     public void openNote(String noteName) throws LinknoteException

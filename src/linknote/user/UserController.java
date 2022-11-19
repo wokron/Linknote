@@ -1,4 +1,4 @@
-package linknote.User;
+package linknote.user;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;

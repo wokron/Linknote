@@ -1,4 +1,4 @@
-package linknote.User;
+package linknote.user;
 import java.util.Objects;
 import java.util.TreeMap;
 import java.util.regex.Pattern;

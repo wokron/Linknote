@@ -20,13 +20,18 @@ public class Linknote
     public void run()
     {
         Scanner in = new Scanner(System.in);
+        System.out.print(Commands.getCommandNotification());
         while (in.hasNextLine())
         {
             String cmd = in.nextLine();
+            if (cmd.equalsIgnoreCase("quit"))
+                break;
             String[] args = parseCommand(cmd);
             String result = this.process(args);
             System.out.print(result);
+            System.out.print(Commands.getCommandNotification());
         }
+        System.out.println("quit success");
     }
 
     /**
@@ -117,7 +122,7 @@ public class Linknote
             case "link" -> Commands::showLinks;
             case "jump" -> Commands::jumpToLinkedNote;
             case "pre" -> Commands::goBackToPreNote;
-            default -> strings -> "command not found";
+            default -> strings -> "command not found\n";
 
         };
         return command.apply(args);

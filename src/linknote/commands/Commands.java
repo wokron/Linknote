@@ -256,7 +256,7 @@ public class Commands
         try
         {
             checkArgumentsNum(1, args);
-            return "now: " + userController.getCurrentUser().showNowCategory() + "\n";
+            return "." + userController.getCurrentUser().showNowCategory() + "\n";
         }
         catch (LinknoteException e)
         {
@@ -397,6 +397,18 @@ public class Commands
         catch (LinknoteException e)
         {
             return e.getMessage() + "\n";
+        }
+    }
+
+    public static String getCommandNotification()
+    {
+        try
+        {
+            return "." + userController.getCurrentUser().showNowCategory() + "> ";
+        }
+        catch (LinknoteException e)
+        {
+            return "Linknote> ";
         }
     }
 

@@ -236,6 +236,8 @@ public class Commands
         {
             checkArgumentsNum(1, args);
             var categories = userController.getCurrentUser().showCategories();
+            if (categories.size() == 0)
+                return "no categories\n";
             return String.join(" ", categories) + "\n";
         }
         catch (LinknoteException e)
@@ -254,7 +256,7 @@ public class Commands
         try
         {
             checkArgumentsNum(1, args);
-            return userController.getCurrentUser().showNowCategory() + "\n";
+            return "now: " + userController.getCurrentUser().showNowCategory() + "\n";
         }
         catch (LinknoteException e)
         {
@@ -279,16 +281,6 @@ public class Commands
         {
             return e.getMessage() + "\n";
         }
-    }
-
-    /**
-     * 对应命令 read
-     * @param args 传入的参数，包括命令名
-     * @return 命令执行完成后的结果
-     */
-    public static String readNotesWithCategory(String... args)
-    {
-        return "not implement command:"+String.join(" ", args)+"\n";
     }
 
     /**
@@ -395,8 +387,8 @@ public class Commands
     {
         try
         {
-            checkArgumentsNum(1, args);
-            userController.getCurrentUser().contentAppend(args[0]);
+            checkArgumentsNum(2, args);
+            userController.getCurrentUser().contentAppend(args[1]);
             var currentUser = userController.getCurrentUser();
             String noteInfo = currentUser.showNoteInfo();
             String content = currentUser.showContent();

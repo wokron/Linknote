@@ -104,6 +104,7 @@ public class Linknote
             case "new" -> Commands::newNote;
             case "open" -> Commands::openNoteSet;
             case "modify" -> Commands::openNote;
+            case ":w" -> Commands::textAppendLine;
             case ":d" -> Commands::textDelete;
             case ":y" -> Commands::textCopy;
             case ":p" -> Commands::textInsert;
@@ -112,12 +113,12 @@ public class Linknote
             case "cate" -> Commands::showCategories;
             case "now" -> Commands::showNowCategory;
             case "goto" -> Commands::gotoCategory;
-            case "read" -> Commands::readNotesWithCategory;
             case "mklink" -> Commands::makeLink;
             case "link" -> Commands::showLinks;
             case "jump" -> Commands::jumpToLinkedNote;
             case "pre" -> Commands::goBackToPreNote;
-            default -> Commands::textAppendLine;
+            default -> strings -> "command not found";
+
         };
         return command.apply(args);
     }

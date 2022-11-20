@@ -47,6 +47,7 @@ public class NoteManagerTest
         manager.openNote("cateNew");
 
         var note = manager.getCurrentNote();
+        note.open();
         note.append("1");
         note.close();
 
@@ -55,10 +56,12 @@ public class NoteManagerTest
         Assert.assertEquals("next", links.get(0));
 
         manager.jumpToLinkedNote("next");
+        manager.getCurrentNote().open();
         manager.getCurrentNote().append("2");
         manager.getCurrentNote().close();
 
         manager.jumpToLinkedNote("next");
+        manager.getCurrentNote().open();
         manager.getCurrentNote().append("3");
         manager.getCurrentNote().close();
 

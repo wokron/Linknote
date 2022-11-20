@@ -26,24 +26,28 @@ public class Note implements Comparable<Note>
                 "/" + noteName + ".note";
     }
 
+    public void open() throws IOException
+    {
+        contentManager.open();
+    }
+
+    /**
+     *
+     * @param appendLine
+     * @throws IOException
+     */
     public void append(String appendLine) throws IOException
     {
-        if (!contentManager.isOpen())
-            contentManager.open();
         contentManager.append(appendLine);
     }
 
     public void delete(int lineFrom, int lineTo) throws IOException
     {
-        if (!contentManager.isOpen())
-            contentManager.open();
         contentManager.delete(lineFrom, lineTo);
     }
 
     public void delete(int line) throws IOException
     {
-        if (!contentManager.isOpen())
-            contentManager.open();
         contentManager.delete(line);
     }
 
@@ -72,8 +76,6 @@ public class Note implements Comparable<Note>
 
     public String getContent() throws IOException
     {
-        if (!contentManager.isOpen())
-            contentManager.open();
         return contentManager.getContent();
     }
 

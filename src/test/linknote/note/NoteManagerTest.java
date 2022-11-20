@@ -44,7 +44,7 @@ public class NoteManagerTest
         Assert.assertEquals(1, cates.size());
         Assert.assertEquals("cateNew", cates.get(0));
 
-        manager.openNote("cateNew");
+        manager.openNoteSet("cateNew");
 
         var note = manager.getCurrentNote();
         note.open();
@@ -88,7 +88,7 @@ public class NoteManagerTest
         manager.goBackToPreNote();
         Assert.assertEquals("1 1\n", manager.getCurrentNote().getContent());
 
-        manager.closeNote();
+        manager.closeNoteSet();
 //        manager.gotoCategory(manager.showCategories().get(0));
 
 

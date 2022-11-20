@@ -101,7 +101,12 @@ public class NoteManager
      */
     public String showNowCategory()
     {
-        return String.join(".", nowCategory.stream().map(CategoryNode::getCateName).toList());
+        var nodes = nowCategory
+                .stream()
+                .map(CategoryNode::getCateName)
+                .filter(name -> !name.equals(""))
+                .toList();
+        return String.join(".", nodes);
     }
 
     /**
@@ -209,9 +214,9 @@ public class NoteManager
 /**
  * 这是一个辅助类，用于表示category形成的路径树
  */
-class CategoryNode
+class CategoryNode implements Comparable<CategoryNode>
 {
-    private final List<CategoryNode> children = new ArrayList<>();
+    private final Set<CategoryNode> children = new TreeSet<>();
     private final String nodeName;
 
     public CategoryNode(String name)
@@ -281,5 +286,11 @@ class CategoryNode
     public boolean isTerminal()
     {
         return children.size() == 0;
+    }
+
+    @Override
+    public int compareTo(CategoryNode o)
+    {
+        return this.nodeName.compareTo(o.nodeName);
     }
 }

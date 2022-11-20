@@ -131,6 +131,14 @@ public class Note
         return contentManager.getContent();
     }
 
+    public String getInfo()
+    {
+        return    "=============================\n"
+                + "title: " + noteName + "\n"
+                + "category: " + category + "\n"
+                + "=============================";
+    }
+
     /**
      * @return 文件名和文件的 category
      */

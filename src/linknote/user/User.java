@@ -107,5 +107,10 @@ public class User {
     {
         noteManager.goBackToPreNote();
     }
+
+    public String showNoteInfo() throws LinknoteException
+    {
+        return noteManager.getCurrentNote().getInfo();
+    }
 }
 

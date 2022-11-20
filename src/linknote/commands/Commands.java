@@ -1,10 +1,16 @@
 package linknote.commands;
 
+import linknote.exception.LinknoteException;
+import linknote.user.UserController;
+
+import java.io.IOException;
+
 /**
  * Commands 类是静态类，用来汇总所有 Linknote 的命令对应的方法。
  */
 public class Commands
 {
+    private static final UserController userController = new UserController();
     private Commands() { }
 
     /**
@@ -14,7 +20,16 @@ public class Commands
      */
     public static String register(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(3, args);
+            userController.register(args[1], args[2]);
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        return "register success\n";
     }
 
     /**
@@ -24,7 +39,16 @@ public class Commands
      */
     public static String login(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(3, args);
+            userController.login(args[1], args[2]);
+            return String.format("user:%s login success\n", args[1]);
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -34,7 +58,16 @@ public class Commands
      */
     public static String logout(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            userController.logout();
+            return "logout\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -44,7 +77,20 @@ public class Commands
      */
     public static String newNote(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(3, args);
+            userController.getCurrentUser().newNote(args[1], args[2]);
+            return String.format("note:%s|%s create success\n", args[2], args[1]);
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
     }
 
     /**
@@ -52,9 +98,48 @@ public class Commands
      * @param args 传入的参数，包括命令名
      * @return 命令执行完成后的结果
      */
-    public static String open(String... args)
+    public static String openNoteSet(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(2, args);
+            var currentUser = userController.getCurrentUser();
+            currentUser.openNoteSet(args[1]);
+            currentUser.openNote();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            currentUser.closeNote();
+            return noteInfo + "\n" + content + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
+    }
+
+    public static String openNote(String... args)
+    {
+        try
+        {
+            checkArgumentsNum(1, args);
+            var currentUser = userController.getCurrentUser();
+            currentUser.openNote();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            return noteInfo + "\n" + content;
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
     }
 
     /**
@@ -64,7 +149,23 @@ public class Commands
      */
     public static String textDelete(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            if (args.length == 2)
+                userController.getCurrentUser().contentDelete(Integer.parseInt(args[1]));
+            else if (args.length == 3)
+                userController.getCurrentUser().contentDelete(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+            else
+                throw new LinknoteException("arguments illegal");
+            var currentUser = userController.getCurrentUser();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            return noteInfo + "\n" + content;
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -94,7 +195,34 @@ public class Commands
      */
     public static String textQuit(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            userController.getCurrentUser().closeNote();
+            return "edit quit\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
+    }
+
+    public static String closeNoteSet(String... args)
+    {
+        try
+        {
+            checkArgumentsNum(1, args);
+            userController.getCurrentUser().closeNoteSet();
+            return "close note set\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -102,9 +230,18 @@ public class Commands
      * @param args 传入的参数，包括命令名
      * @return 命令执行完成后的结果
      */
-    public static String showCategory(String... args)
+    public static String showCategories(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            var categories = userController.getCurrentUser().showCategories();
+            return String.join(" ", categories) + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -114,7 +251,15 @@ public class Commands
      */
     public static String showNowCategory(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            return userController.getCurrentUser().showNowCategory() + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -124,7 +269,16 @@ public class Commands
      */
     public static String gotoCategory(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(2, args);
+            userController.getCurrentUser().gotoCategory(args[1]);
+            return "goto category: " + args[1] + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -144,7 +298,16 @@ public class Commands
      */
     public static String makeLink(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(4, args);
+            userController.getCurrentUser().makeLink(args[1], args[2], args[3]);
+            return "here ---> " + args[1] + " link success\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -154,7 +317,16 @@ public class Commands
      */
     public static String showLinks(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            var links = userController.getCurrentUser().showLinks();
+            return "links:\n" + String.join("\n", links) + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
     }
 
     /**
@@ -164,7 +336,54 @@ public class Commands
      */
     public static String jumpToLinkedNote(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(2, args);
+            userController.getCurrentUser().jumpToLinkedNote(args[1]);
+            var currentUser = userController.getCurrentUser();
+            currentUser.openNote();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            currentUser.closeNote();
+            return noteInfo + "\n" + content + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
+    }
+
+    /**
+     * 对应命令 pre
+     * @param args 传入的参数，包括命令名
+     * @return 命令执行完成后的结果
+     */
+    public static String goBackToPreNote(String... args)
+    {
+        try
+        {
+            checkArgumentsNum(1, args);
+            userController.getCurrentUser().goBackToPreNote();
+            var currentUser = userController.getCurrentUser();
+            currentUser.openNote();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            currentUser.closeNote();
+            return noteInfo + "\n" + content + "\n";
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+        catch (IOException e)
+        {
+            return "file operation failed\n";
+        }
+
     }
 
     /**
@@ -174,6 +393,24 @@ public class Commands
      */
     public static String textAppendLine(String... args)
     {
-        return "not implement command:"+String.join(" ", args)+"\n";
+        try
+        {
+            checkArgumentsNum(1, args);
+            userController.getCurrentUser().contentAppend(args[0]);
+            var currentUser = userController.getCurrentUser();
+            String noteInfo = currentUser.showNoteInfo();
+            String content = currentUser.showContent();
+            return noteInfo + "\n" + content;
+        }
+        catch (LinknoteException e)
+        {
+            return e.getMessage() + "\n";
+        }
+    }
+
+    private static void checkArgumentsNum(int num, String... args) throws LinknoteException
+    {
+        if (args.length != num)
+            throw new LinknoteException("arguments illegal");
     }
 }

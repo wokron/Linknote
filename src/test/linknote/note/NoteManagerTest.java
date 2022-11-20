@@ -66,7 +66,9 @@ public class NoteManagerTest
         manager.getCurrentNote().close();
 
         manager.goBackToPreNote();
+        manager.getCurrentNote().open();
         Assert.assertEquals("1 2\n", manager.getCurrentNote().getContent());
+        manager.getCurrentNote().close();
 
         manager.makeLink("goto_y2", "y2.cateNew", "test6");
         links = manager.showLinks();
@@ -86,7 +88,9 @@ public class NoteManagerTest
         manager.goBackToPreNote();
         manager.goBackToPreNote();
         manager.goBackToPreNote();
+        manager.getCurrentNote().open();
         Assert.assertEquals("1 1\n", manager.getCurrentNote().getContent());
+        manager.getCurrentNote().close();
 
         manager.closeNoteSet();
 //        manager.gotoCategory(manager.showCategories().get(0));

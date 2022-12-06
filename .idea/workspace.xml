@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c60c0b72-8d8c-4aeb-be2d-42df97104969" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/BUAA.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Box_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_GPS_Antenna_64px_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Home_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Meanpath_64px_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Open_Envelope_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Person_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Search_52px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Sign_Out_32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Slider__32px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Xbox_Menu_32px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Linknote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Linknote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linknote/gui/LinknoteGUI.java" beforeDir="false" />
-    </list>
+    <list default="true" id="c60c0b72-8d8c-4aeb-be2d-42df97104969" name="变更" comment="变更" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +176,7 @@
       <workItem from="1669772782265" duration="1332000" />
       <workItem from="1670247775692" duration="2073000" />
       <workItem from="1670292996711" duration="113000" />
-      <workItem from="1670316324471" duration="2956000" />
+      <workItem from="1670316324471" duration="3314000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1667374752899</created>
@@ -207,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668306576483</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="变更">
+      <created>1670320449851</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670320449851</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

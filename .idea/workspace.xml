@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c60c0b72-8d8c-4aeb-be2d-42df97104969" name="变更" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/linknote/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linknote/User/UserController.java" afterDir="false" />
+    <list default="true" id="c60c0b72-8d8c-4aeb-be2d-42df97104969" name="变更" comment="变更">
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/BUAA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Box_32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_GPS_Antenna_64px_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Home_32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Meanpath_64px_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Open_Envelope_32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Person_32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Search_52px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Sign_Out_32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Slider__32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linknote/gui/images/icons8_Xbox_Menu_32px.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Linknote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Linknote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linknote/gui/LinknoteGUI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -29,13 +41,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="master" />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -45,31 +50,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "D:/develop/IDEA/Code/Linknote/src/linknote/gui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
-}</component>
-  <component name="RunManager" selected="Application.UserController">
-    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="linknote.User.UserController" />
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\develop\IDEA\Code\Linknote\src\linknote\gui\" />
+      <recent name="D:\develop\IDEA\Code\Linknote\src\linknote\gui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.linknote.gui.home.LinknoteGUI">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Linknote" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="linknote.gui.home.LinknoteGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="linknote.gui.home.LinknoteGUI" />
+      <module name="Linknote" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\develop\IDEA\javafx-sdk-18\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="linknote.User.*" />
+          <option name="PATTERN" value="linknote.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,9 +116,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NoteTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Linknote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.linknote.note.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.linknote.note" />
+      <option name="MAIN_CLASS_NAME" value="test.linknote.note.NoteTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Linknote" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.linknote.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.linknote.user" />
+      <option name="MAIN_CLASS_NAME" value="test.linknote.user.UserControllerTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.linknote.gui.home.LinknoteGUI" />
+      <item itemvalue="JUnit.LinknoteTest.testParseCommand" />
+      <item itemvalue="JUnit.NoteTest.test" />
+      <item itemvalue="JUnit.UserControllerTest.test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserController" />
+        <item itemvalue="Application.linknote.gui.home.LinknoteGUI" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.NoteTest.test" />
+        <item itemvalue="JUnit.UserControllerTest.test" />
         <item itemvalue="JUnit.LinknoteTest.testParseCommand" />
       </list>
     </recent_temporary>
@@ -114,6 +179,19 @@
       <workItem from="1667485912220" duration="390000" />
       <workItem from="1667486321975" duration="1775000" />
       <workItem from="1667534144174" duration="8872000" />
+      <workItem from="1668946900607" duration="605000" />
+      <workItem from="1669025331268" duration="2145000" />
+      <workItem from="1669617920915" duration="594000" />
+      <workItem from="1669619188190" duration="562000" />
+      <workItem from="1669620299414" duration="1177000" />
+      <workItem from="1669627331373" duration="2568000" />
+      <workItem from="1669642627052" duration="62000" />
+      <workItem from="1669642892673" duration="4160000" />
+      <workItem from="1669685778062" duration="3888000" />
+      <workItem from="1669772782265" duration="1332000" />
+      <workItem from="1670247775692" duration="2073000" />
+      <workItem from="1670292996711" duration="113000" />
+      <workItem from="1670316324471" duration="2956000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1667374752899</created>
@@ -122,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667374752899</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="变更">
+      <created>1668306576483</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668306576483</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +238,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="变更" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -164,5 +250,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
